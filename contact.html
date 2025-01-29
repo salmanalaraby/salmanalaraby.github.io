@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>التواصل معنا</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            direction: rtl;
+            text-align: right;
+        }
+
+        body.ltr {
+            direction: ltr;
+            text-align: left;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 0.5rem 0;
+            margin-top: auto;
+        }
+
+        .container {
+            display: flex;
+            flex: 1;
+            flex-wrap: wrap;
+        }
+
+        .sidebar {
+            background-color: #f4f4f4;
+            padding: 1rem;
+            width: 20%;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .main-content {
+            flex: 1;
+            padding: 1rem;
+        }
+
+        .lang-toggle {
+            text-align: center;
+            margin: 1rem 0;
+        }
+
+        .lang-toggle button {
+            padding: 0.5rem 1rem;
+            margin: 0 0.5rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li {
+            margin: 0.5rem 0;
+        }
+
+        ul li a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* استعلامات الوسائط لجعل الصفحة متوافقة مع جميع الأجهزة */
+        @media (max-width: 1024px) {
+            .sidebar {
+                width: 30%;
+            }
+
+            .main-content {
+                padding: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+                box-shadow: none;
+                margin-bottom: 1rem;
+            }
+
+            .main-content {
+                padding: 1rem;
+            }
+
+            .lang-toggle button {
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.2rem;
+            }
+
+            .lang-toggle button {
+                padding: 0.3rem 0.8rem;
+                font-size: 0.8rem;
+            }
+
+            footer p {
+                font-size: 0.8rem;
+            }
+
+            ul li {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+    <script>
+        function toggleLanguage(lang) {
+            document.documentElement.lang = lang;
+            const elements = document.querySelectorAll('[data-en], [data-ar]');
+            elements.forEach(el => {
+                if (lang === 'ar') {
+                    el.textContent = el.getAttribute('data-ar');
+                    document.body.classList.remove('ltr');
+                } else if (lang === 'en') {
+                    el.textContent = el.getAttribute('data-en');
+                    document.body.classList.add('ltr');
+                }
+            });
+        }
+        window.onload = () => toggleLanguage('ar');
+    </script>
+</head>
+<body>
+    <header>
+        <h1 data-en="Contact Us" data-ar="التواصل معنا">التواصل معنا</h1>
+    </header>
+
+    <div class="lang-toggle">
+        <button onclick="toggleLanguage('en')">English</button>
+        <button onclick="toggleLanguage('ar')">العربية</button>
+    </div>
+
+    <div class="container">
+        <aside class="sidebar">
+            <ul>
+                <li><a href="index.html" data-en="Home" data-ar="الرئيسية">الرئيسية</a></li>
+                <li><a href="about.html" data-en="About" data-ar="من نحن">من نحن</a></li>
+                <li><a href="services.html" data-en="Services" data-ar="الخدمات">الخدمات</a></li>
+                <li><a href="contact.html" data-en="Contact" data-ar="اتصل بنا">اتصل بنا</a></li>
+            </ul>
+        </aside>
+        <main class="main-content">
+            <h2 data-en="Get in Touch" data-ar="ابق على تواصل">ابق على تواصل</h2>
+            <p data-en="You can reach us through the following contact details:" data-ar="يمكنك التواصل معنا من خلال التفاصيل التالية:">يمكنك التواصل معنا من خلال التفاصيل التالية:</p>
+            <ul>
+                <li data-en="Phone: +123-456-7890" data-ar="الهاتف: +123-456-7890">الهاتف: +123-456-7890</li>
+                <li data-en="Email: info@example.com" data-ar="البريد الإلكتروني: info@example.com">البريد الإلكتروني: info@example.com</li>
+                <li data-en="Address: 123 Main Street, City, Country" data-ar="العنوان: 123 شارع الرئيسي، المدينة، الدولة">العنوان: 123 شارع الرئيسي، المدينة، الدولة</li>
+            </ul>
+        </main>
+    </div>
+
+    <footer>
+        <p data-en="&copy; 2025  All rights reserved." data-ar="&copy; 2025  جميع الحقوق محفوظة">&copy; 2025 موقعك. جميع الحقوق محفوظة.</p>
+    </footer>
+</body>
+</html>

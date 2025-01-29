@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحة تعريفية عن الموقع</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            direction: rtl;
+            text-align: right;
+        }
+
+        body.ltr {
+            direction: ltr;
+            text-align: left;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 0.5rem 0;
+            margin-top: auto;
+        }
+
+        .container {
+            display: flex;
+            flex: 1;
+            flex-wrap: wrap;
+        }
+
+        .sidebar {
+            background-color: #f4f4f4;
+            padding: 1rem;
+            width: 20%;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .main-content {
+            flex: 1;
+            padding: 1rem;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 1rem;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        form input, form button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        form button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background-color: #45a049;
+        }
+
+        .lang-toggle {
+            text-align: center;
+            margin: 1rem 0;
+        }
+
+        .lang-toggle button {
+            padding: 0.5rem 1rem;
+            margin: 0 0.5rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* تصميم مستجيب */
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 100%;
+                box-shadow: none;
+                margin-bottom: 1rem;
+            }
+
+            .main-content {
+                padding: 0.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            form {
+                padding: 0.5rem;
+            }
+
+            form input, form button {
+                padding: 8px;
+            }
+        }
+    </style>
+    <script>
+        function toggleLanguage(lang) {
+            document.documentElement.lang = lang;
+            const elements = document.querySelectorAll('[data-en], [data-ar]');
+            elements.forEach(el => {
+                if (lang === 'ar') {
+                    el.textContent = el.getAttribute('data-ar');
+                    document.body.style.direction = 'rtl';
+                    document.body.style.textAlign = 'right';
+                } else if (lang === 'en') {
+                    el.textContent = el.getAttribute('data-en');
+                    document.body.style.direction = 'ltr';
+                    document.body.style.textAlign = 'left';
+                }
+            });
+        }
+        window.onload = () => toggleLanguage('ar');
+    </script>
+</head>
+<body>
+    
+        
+            <header>
+                <h1 data-en="About Our Website" data-ar="عن موقعنا">عن موقعنا</h1>
+            </header>
+
+            <div class="lang-toggle">
+                <button onclick="toggleLanguage('en')">English</button>
+                <button onclick="toggleLanguage('ar')">العربية</button>
+            </div>
+            <div class="container">
+                <aside class="sidebar">
+                    <ul>
+                        <li><a href="home.html" data-en="Home" data-ar="الرئيسية">الرئيسية</a></li>
+                        <li><a href="about.html" data-en="About" data-ar="من نحن">من نحن</a></li>
+                        <li><a href="services.html" data-en="Services" data-ar="الخدمات">الخدمات</a></li>
+                        <li><a href="contact.html" data-en="Contact" data-ar="اتصل بنا">اتصل بنا</a></li>
+                    </ul>
+                </aside>
+                <main class="main-content">
+                    <ul>  
+            <p data-en="Welcome to our website! Here you can find information about our services and mission." data-ar="مرحبًا بكم في موقعنا! هنا يمكنك العثور على معلومات حول خدماتنا ورسالتنا.">
+                مرحبًا بكم في موقعنا! هنا يمكنك العثور على معلومات حول خدماتنا ورسالتنا.
+            </p>
+        </ul>
+    </main>
+</div>
+                   
+    <footer>
+        <p data-en="&copy; 2025  All rights reserved." data-ar="&copy; 2025 جميع الحقوق محفوظة">&copy; 2025 جميع الحقوق محفوظة</p>
+    </footer>
+                  
+</body>
+</html>
